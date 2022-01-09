@@ -50,7 +50,7 @@ def extract_features(img,winSize=11,freqestim=1,mode='nh'):
     return LPQdesc
 
 # 3) Features extraction
-def extract_features(img,winSize=10,freqestim=1,mode='nh'):
+def extract_features(img,winSize=5,freqestim=1,mode='nh'):
     rho= 0.90
     STFTalpha=1/winSize  # alpha in STFT approaches (for Gaussian derivative alpha=1)
     sigmaS=(winSize-1)/4 # Sigma for STFT Gaussian window (applied if freqestim==2)

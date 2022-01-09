@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 import glob
+import os
+
 
 def ReadDataSet():
     x = []
@@ -18,9 +20,18 @@ def ReadDataSet():
 
 def ReadTestSet(directory):
     x_test = []
-    for filename in sorted(glob.glob(directory +'*.png')):
-        img = cv2.imread(filename) 
+    # for filename in sorted(glob.glob(directory +'*.png')):
+    #     img = cv2.imread(filename) 
+    #     x_test.append(img)
+    path = "./test"
+    i=0
+    list_dir=[int(file.split(".")[0]) for file in os.listdir(path)]
+    list_dir.sort()
+    for fname in list_dir:    
+        img = cv2.imread(path + '/' + str(fname)+".png")
         x_test.append(img)
+    i += 1
+
 
     return x_test
 

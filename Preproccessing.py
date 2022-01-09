@@ -10,4 +10,5 @@ def preproccessing(img):
     if(binary[0,0] == 1):
         binary = np.bitwise_not(binary)
     
+    
     return binary.astype(np.uint8)
