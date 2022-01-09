@@ -14,18 +14,18 @@ import pickle
 
 
 # ############################ Read Dataset ########################
-# '''
-# 1.a) READ THE DATASET
-# '''
-# x,y = ReadDataSet()
+'''
+1.a) READ THE DATASET
+'''
+x,y = ReadDataSet()
 
 # # ############################ Phase-1 ########################
 
-# model = Phase1(x,y)
+model = Phase1(x,y)
 
-# # save the model to disk
-# filename = 'finalized_model.sav'
-# pickle.dump(model, open(filename, 'wb'))
+# save the model to disk
+filename = 'finalized_model.sav'
+pickle.dump(model, open(filename, 'wb'))
 
 
 # ############################ Phase-2 ########################
@@ -36,12 +36,10 @@ filename = 'finalized_model.sav'
 model = pickle.load(open(filename, 'rb'))
 
 # 1) Inputs : Full Path to the test-set directory , Full Path to the output directory
-# '''
 
 inputPath = str(sys.argv[1])
 outputPath = str(sys.argv[2])
 
-# '''
 # 2) Read Test set
 # '''
 x_test= ReadTestSet(inputPath)
@@ -70,5 +68,6 @@ for i in range(0,len(x_test)):
         y_pred[i] = -1
         continue
 
+print(len(y_pred))
 runningTime[runningTime == 0] = 0.001
 WriteOutputFiles(outputPath,y_pred,runningTime)
